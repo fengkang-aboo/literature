@@ -1,0 +1,20 @@
+<import src="../tpls/products/VideoProducts/VideoProducts-tpl.wxml" />
+<view class="services_container">
+    <video class="services_video" src="{{categoryVideo.main_video_url}}" poster="{{categoryVideo.main_img_url}}" controls></video>
+    <view class="service-body" hidden="{{categoryProducts.error_code==30000}}">
+        <view class="tabs-title">
+            <view class="tabs-title-left">{{categoryVideo.name}}</view>
+            <view class="tabs-title-right">时长{{categoryVideo.duration}}</view>
+        </view>
+        <view class="tabs-describe">
+            <text class="des-title">简介</text>
+            <text class="des-info">{{categoryVideo.content}}</text>
+        </view>
+        <view class="tabs-box">
+            <text>相关推荐</text>
+        </view>
+        <view class="tabs-bottom">
+            <template is="VideoProducts" data="{{products:moreVideosArr}}"></template>
+        </view>
+    </view>
+</view>

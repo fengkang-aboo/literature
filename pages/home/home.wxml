@@ -1,0 +1,24 @@
+<import src="../tpls/menus/menus-tpl.wxml" />
+<import src="../tpls/products/HomeProducts/HomeProducts-tpl.wxml" />
+
+<view class="container">
+   <view class="location">
+        <image class="location-bg" src="/images/home/zhezhao.png"></image>
+        <view class="address" bindtap="onCityTap">
+            <view class="address-city">{{cityName==null?'定位中...':cityName}}</view>
+            <image class="address-img" src="/images/home/btn_xiala.png"></image>
+        </view>
+   </view>
+   <swiper indicator-dots="true" indicator-color="#ffffff" autoplay="true" circular="{{false}}">
+      <block wx:for="{{bannerArr}}">
+          <swiper-item data-key="{{item.key_word}}"
+           data-type="{{item.type}}" bindtap="onBannerTap" >
+                <image mode="aspectFill" src="{{item.img.url}}"></image>
+            </swiper-item>
+      </block>
+   </swiper>
+
+
+   <template is="menus"></template>
+   <template is="HomeProducts" data="{{products:productsArr}}"></template>
+</view>

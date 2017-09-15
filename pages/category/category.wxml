@@ -1,0 +1,35 @@
+<import src="../tpls/products/ThemeProducts/ThemeProducts-tpl.wxml" />
+<import src="../tpls/products/VideoProducts/VideoProducts-tpl.wxml" />
+<import src="../tpls/products/AppointmentProducts/AppointmentProducts-tpl.wxml" />
+
+<view class="services_container">
+	<view class="services_banner">
+	    <image class="services_banner" src="{{themeInfo.date_img.url}}" mode="aspectFill"></image>
+    	<!-- <image class="services_banner" wx:if="{{currentTabsIndex==1}}" src="{{themeInfo.shop_img.url}}" mode="aspectFill"></image>
+    	<image class="services_banner" wx:if="{{currentTabsIndex==2}}" src="{{themeInfo.video_img.main_img_url}}" mode="aspectFill"></image>  -->
+		<!-- <view class="mask">
+			<view class='mask-inner'>
+				<view>文字文字文字文字文字文</view>
+				<view>文字文字文字文字文字文字文字文</view>
+			</view>
+		</view> -->
+	</view>
+    <view class="service-body" hidden="{{categoryProducts.error_code==30000}}">
+        <view class="tabs-box">
+            <block wx:for="{{['预约','商品' ,'IP']}}">
+                <view class="tabs-item {{currentTabsIndex==index?'selected':''}}" bindtap="onTabsItemTap" data-index="{{index}}">
+                    {{item}}
+                </view>
+            </block>
+        </view>
+        <view wx:if="{{currentTabsIndex==0}}">
+            <template is="AppointmentProducts" data="{{products:categoryTimes}}"></template>
+        </view>
+        <view wx:if="{{currentTabsIndex==1}}">
+            <template is="ThemeProducts" data="{{products:categoryProducts}}"></template>
+        </view>
+        <view wx:if="{{currentTabsIndex==2}}">
+            <template is="VideoProducts" data="{{products:categoryVideos}}"></template>
+        </view>
+    </view>
+</view>

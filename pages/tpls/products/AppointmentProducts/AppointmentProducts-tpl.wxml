@@ -1,0 +1,21 @@
+<!-- 分类下预约商品列表 -->
+
+<template name="AppointmentProducts">
+<view class="AppointmentProducts">
+  <block wx:for="{{products}}">
+    <view class="appointments" data-id="{{item.id}}" data-type="{{item.category_id}}" catchtap="onProductsItemTap">
+      <image class="appointments_img" src="{{item.main_img_url}}" mode="aspectFill"></image>
+      <view class="appointments_data">
+        <text class="appointments_title">{{item.name}} {{item.describe}}</text>
+        <text class="appointments_price">{{item.price}}元/单</text>
+        <view class="appointments_describe">
+        <!-- <block wx:for="{{item.tags}}"> -->
+          <text wx:if="{{item.tags[0].name}}">{{item.tags[0].name}}</text>
+          <text wx:if="{{item.tags[0].detail}}">{{item.tags[0].detail}}</text>
+        <!-- </block> -->
+        </view>
+      </view>
+    </view>
+  </block>
+  </view>
+</template>

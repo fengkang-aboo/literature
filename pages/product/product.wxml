@@ -1,0 +1,76 @@
+<import src="../tpls/products/ThemeProducts/ThemeProducts-tpl.wxml" />
+<view class="container detail_container">
+    <view class="detail_topic_img">
+        <swiper indicator-dots="true" indicator-color="#ffffff" circular="{{false}}">
+            <swiper-item><image src="{{product.main_img_url}}" mode="aspectFill"></image></swiper-item>
+        </swiper>
+    </view>
+
+    <view class="shop_detail">
+        <view class="detail_data">
+            <text class="detail_title">{{product.name}}</text>
+            <text class="detail_author">{{product.describe}}</text>
+        </view>
+        <view class="detail_price">
+            <text class="detail_price2">¥{{product.price}}</text>
+            <text class="detail_price1">¥{{product.original_price}}</text>
+        </view>
+    </view>
+
+    <view class="shop_date_address">
+        <view class="shop_date">
+            <image src="/images/icon/ico_time.png"></image>
+            <text>活动时间：{{product.duration}}</text>
+        </view>
+        <view class="shop_date" bindtap="onAddressTap">
+            <image src="/images/icon/ico_place.png"></image>
+            <text>活动地点：{{product.address}}</text>
+            <image class="right-icon" src="/images/icon/ico_arrow_right.jpg"></image>
+        </view>
+    </view>
+
+    <view class="detail-bottom-box">
+        <view class="tabs-box">
+            <block wx:for="{{['商品详情','产品参数']}}">
+                <view class="tabs-item {{currentTabsIndex==index?'selected':''}}" bindtap="onTabsItemTap" data-index="{{index}}">
+                    {{item}}
+                </view>
+            </block>
+        </view>
+        <view class="product-detail-box">
+            <view class="product-detail-imgs" hidden="{{currentTabsIndex!=0}}">
+                <block wx:for="{{product.imgs}}">
+                    <view class="detail-title"
+                    wx:if="{{item.title!=''&&item.title!=null&&item.title!=undefine}}">{{item.title}}</view>
+                    <view class="detail-text"
+                    wx:if="{{item.content!=''&&item.content!=null&&item.content!=undefine}}">{{item.content}}</view>
+                    <image src="{{item.img_url.url}}" mode="widthFix"
+                    wx:if="{{item.img_url.url!=''&&item.img_url.url!=null&&item.img_url.url!=undefine}}"
+                    ></image>
+                </block>
+            </view>
+            <view class="product-detail-properties" hidden="{{currentTabsIndex!=1}}">
+                <block wx:for="{{product.properties}}">
+                    <view class="properties-item">
+                        <view class="properties-name">{{item.name}}</view>
+                        <view class="properties-detail">{{item.detail}}</view>
+                    </view>
+                </block>
+            </view>
+        </view>
+    </view>
+    <!-- 相关推荐 -->
+    <view class="tabs-bottom" hidden="{{currentTabsIndex!=0}}">
+        <text>相关推荐</text>
+    </view>
+    <view class="tabs-more" hidden="{{currentTabsIndex!=0}}">
+        <template is="ThemeProducts" data="{{products:moreProductsArr}}"></template>
+    </view>
+    <!-- 底部立即购买 -->
+    <view class="cart-box">
+        <view class="product-counts">￥{{product.price}}</view>
+        <view class="add-cart-btn {{product.stock==0?'disabled':''}}" bindtap="submitOrder">
+            <text>{{product.stock==0?'商品已下架':'立即购买'}}</text>
+        </view>
+    </view>
+</view>

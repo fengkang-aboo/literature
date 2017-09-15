@@ -1,0 +1,20 @@
+<template name="menus">
+   <view class="menus">
+   		<view class='floor'>
+			<image class="menus-item" data-id="3" data-name="画室盒子" bindtap="onCategoryItemTap" src="/images/icon/huashi.png"></image>
+			<image class="menus-item" data-id="4" data-name="美食盒子" bindtap="onCategoryItemTap" src="/images/icon/meishi.png"></image>
+			<image class="menus-item" data-id="2" data-name="文艺剧场" bindtap="onCategoryItemTap" src="/images/icon/wenyi.png"></image>
+   		</view>
+
+		<view class='floor'>
+			<image class="joyitem" data-id="1" data-name="卓尔音乐学堂" bindtap="onCategoryItemTap" src="/images/icon/zhuoer.png"></image>
+			<image class="menus-item" data-id="8" data-name="展览盒子" bindtap="onCategoryItemTap" src="/images/icon/zhanlan.png"></image>
+		</view>
+
+		<view class='floor'>
+			<image class="menus-item" data-id="7" data-name="瑜伽盒子" bindtap="onCategoryItemTap" src="/images/icon/yujia.png"></image>
+			<image class="menus-item" data-id="5" data-name="手作盒子" bindtap="onCategoryItemTap" src="/images/icon/shouzuo.png"></image>
+			<image class="menus-item" data-id="6" data-name="图书盒子" bindtap="onCategoryItemTap" src="/images/icon/tushu.png"></image>
+		</view>
+   </view>
+</template>

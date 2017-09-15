@@ -1,0 +1,15 @@
+<!--pages/result/result.wxml-->
+<view class='container result-container'>
+	<view class='result-header'>
+		<text>欢迎光临</text>
+		<image src="/images/icon/logo.jpg"></image>
+	</view>
+	<view class='result-content'>
+		<image hidden="{{move}}" class='move1' src='/images/icon/move1.png'></image>
+		<image hidden="{{!move}}" class='move2' src='/images/icon/move2.gif'></image>
+	</view>
+	<view class='result-tips'>
+		<text>请在与门禁距离<text style='color:#d93838'>10cm</text>内操作\r\n该临时钥匙仅限当日有效</text>
+	</view>
+	<view class="result-btn {{!inTime?'disabled':''}}" bindtap='onTap'>点击开启钥匙</view>
+</view> 

@@ -1,0 +1,20 @@
+<!--city.wxml-->
+<view class="container container-city">
+    <view class="block">
+        <text class="title">当前城市</text>
+        <view class="content">
+            <text class="city">{{cityName}}</text>
+        </view>
+        <!-- <text class="tips">您当前定位城市尚未开通服务，请选择下方热门城市进行体验</text> -->
+    </view>
+    <view class="hot-city">
+        <text class="title">热门城市</text>
+        <view class="content">
+            <text class="city" data-name="北京市" data-code="332211" catchtap="chooseCityTap">北京市</text>
+            <text class="city" data-name="深圳市" data-code="112233" catchtap="chooseCityTap">深圳市</text>
+        </view>
+    </view>
+
+
+
+</view>

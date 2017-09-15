@@ -1,0 +1,60 @@
+@import "../tpls/menus/menus-tpl.wxss";
+@import "../tpls/products/HomeProducts/HomeProducts-tpl.wxss";
+
+.container {
+    border-top: solid 1px #e6e6e6;
+    background-color: #fff;
+    position: relative;
+}
+
+swiper {
+    width: 100%;
+    height: 300rpx;
+}
+
+swiper image {
+    width: 100%;
+    height: 100%;
+}
+
+.location {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 110rpx;
+    display: table;
+    z-index: 100;
+}
+
+.location-bg {
+    width: 100%;
+    height: 110rpx;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.address {
+    width: 500rpx;
+    height: 110rpx;
+    box-sizing: border-box;
+    padding: 40rpx 0 0 40rpx;
+    display: flex;
+}
+
+.address-city {
+    color: #fff;
+    font-size: 28rpx;
+    line-height: 28rpx;
+    font-weight: 500;
+    
+}
+
+.address-img {
+    width: 36rpx;
+    height: 36rpx;
+    margin-left: 24rpx;
+    margin-top: -6rpx;
+}

@@ -1,0 +1,41 @@
+<view class="container my-container" hidden="{{!loadingHidden}}">
+    <view class="my-order">
+        <view class="item-main">
+            <block wx:for="{{orderArr}}">
+                <view class="order-item">
+                    <view class="order-header" ontap="showOrderDetailInfo" data-id="{{item.id}}">
+						<view class='order-num'>
+							<text>交易单号:</text>
+							<text class="order-no-txt">{{item.order_no}}</text>
+						</view>
+						<view class='order-status'>
+						    <text class="order-status-txt unpay" wx:if="{{item.status==1}}">支付失败</text>
+                            <text class="order-status-txt payed" wx:if="{{item.status==2}}">已支付</text>
+                            <text class="order-status-txt done" wx:if="{{item.status==3}}">已发货</text></view>
+                    	</view>
+                    <view class="order-main" ontap="showOrderDetailInfo" data-id="{{item.id}}">
+                        <image class='item-image' src="{{item.snap_img}}" mode="aspectFill"></image>
+                        <view class="item-middle">
+                            <view class='item-middle-name'>{{item.snap_name}}</view>
+                            <view class='item-middle-attr'>
+								<text wx:if="{{item.feature}}">规格：{{item.feature}}； </text>
+								<text wx:if="{{item.time}}">时间：{{item.time}}； </text>
+								<text wx:if="{{item.express}}">配送方式：{{item.express}} </text>
+							</view>
+                        </view>
+                    </view>
+                    <view class="order-bottom">
+                        <text>实付:￥{{item.total_price}}</text>
+                        <view class="pay" wx:if="{{item.status==2&&item.time}}" ontap="onTestTap"
+						 data-id="{{item.id}}" data-index="{{index}}">去使用</view>
+						 <view class="pay" wx:if="{{item.status==1}}" ontap="showOrderDetailInfo"
+						 data-id="{{item.id}}" data-index="{{index}}">重新购买</view>
+                    </view>
+                </view>
+            </block>
+        </view>
+    </view>
+</view>
+<loading hidden="{{loadingHidden}}">
+    加载中...
+</loading>

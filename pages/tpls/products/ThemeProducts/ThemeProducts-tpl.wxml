@@ -1,0 +1,21 @@
+<!-- 分类下传统商品列表 -->
+
+<template name="ThemeProducts">
+<view class="ThemeProducts">
+  <block wx:for="{{products}}">
+    <view class="shops" data-id="{{item.id}}" data-type="{{item.category_id}}" catchtap="onProductsItemTap">
+      <image class="shops_img" src="{{item.main_img_url}}" mode="aspectFill"></image>
+      <view class="shops_data">
+        <text class="shops_title">{{item.name}} {{item.describe}}</text>
+        <text class="shops_price">{{item.price}}元/单</text>
+        <view class="shops_describe">
+        <!-- <block wx:for="{{item.tags}}"> -->
+          <text wx:if="{{item.tags[0].name}}">{{item.tags[0].name}}</text>
+          <text wx:if="{{item.tags[0].detail}}">{{item.tags[0].detail}}</text>
+        <!-- </block> -->
+        </view>
+      </view>
+    </view>
+  </block>
+  </view>
+</template>

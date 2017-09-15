@@ -1,0 +1,20 @@
+
+<!-- 首页精选商品列表 -->
+
+<template name="HomeProducts">
+  <view class="services">
+    <text class="services-title">专题精选</text>
+    <text class="services-describe">为你推荐最新生活资讯</text>
+    <block wx:for="{{products}}">
+      <view class="service" data-id="{{item.id}}" data-type="{{item.category_id}}" catchtap="onProductsItemTap">
+        <view class="service-container">
+          <text class="service-title">{{item.name}}</text>
+          <text class="service-describe">{{item.describe}}</text>
+          <text class="service-price">{{item.price}}元/单</text>
+        </view>
+        <image src="{{item.main_img_url}}" mode="aspectFill"></image>
+         <view class="service-cover"></view> 
+      </view>
+    </block>
+  </view>
+</template>

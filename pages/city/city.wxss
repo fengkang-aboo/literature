@@ -1,0 +1,26 @@
+/* city.wxss */
+.container-city{
+    background: #fff;
+    padding: 40rpx;
+}
+.title{
+    font-size: 14px;
+    color: #999;
+}
+.content{
+    margin-top: 40rpx;
+}
+.city{
+    display: inline-block;
+    padding: 0 20rpx;
+    line-height: 70rpx;
+    color: #333;
+    font-size: 14px;
+    background: #f0f0f0;
+    font-weight: 500;
+    margin-right: 20rpx;
+    margin-bottom: 20rpx;
+}
+.hot-city{
+    margin-top: 40rpx;
+}

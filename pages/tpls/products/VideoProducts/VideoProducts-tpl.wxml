@@ -1,0 +1,31 @@
+<!-- 分类下视频列表 -->
+
+<template name="VideoProducts">
+    <view class="VideoProducts">
+        <block wx:for="{{products}}">
+            <view class="videos" data-id="{{item.id}}" data-type="{{item.category_id}}" catchtap="onProductsVideoTap">
+                <view class="videos_imgs">
+                    <image class="videos_img" src="{{item.main_img_url}}" mode="aspectFill"></image>
+                    <image class="videos_img_play" src="/images/icon/video-play.jpg" mode="aspectFill"></image>
+                </view>
+                <view class="videos_data">
+                    <text class="videos_title">{{item.name}} {{item.describe}}</text>
+                    <text class="videos_price">时长{{item.duration}}</text>
+                </view>
+            </view>
+        </block>
+
+        <!-- <view class="videos" catchtap="onProductsVideoTap">
+            <view class="videos_imgs">
+                <image class="videos_img" src="/images/pic1.jpg" mode="aspectFill"></image>
+                <image class="videos_img_play" src="/images/icon/video-play.jpg" mode="aspectFill"></image>
+            </view>
+
+            <view class="videos_data">
+                <text class="videos_title">素描视频课程</text>
+                <text class="videos_price">时长1:49</text>
+            </view>
+        </view> -->
+        
+  </view>
+</template>
